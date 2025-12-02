@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<title>ПП-26 Сахацька</title>
+</head>
+<body>
+<script>
+"use strict";
+
+// Створюємо масив із 15 випадкових чисел (1..100)
+let arr = [];
+for (let i = 0; i < 15; i++) {
+    arr[i] = Math.floor(Math.random() * 100) + 1;
+}
+
+// Виводимо початковий масив
+document.write("<p>Початковий масив: " + arr.join(", ") + "</p>");
+
+// Пошук мінімального елемента
+let min = arr[0];
+let minIndex = 0;
+
+for (let i = 1; i < arr.length; i++) {
+    if (arr[i] < min) {
+        min = arr[i];
+        minIndex = i;
+    }
+}
+
+// Обчислюємо суму першого та останнього елементів
+let sum = arr[0] + arr[arr.length - 1];
+
+// Замінюємо мінімальний елемент цією сумою
+arr[minIndex] = sum;
+
+// Виводимо результати
+document.write("<p>Мінімальний елемент: " + min + " (позиція " + (minIndex + 1) + ")</p>");
+document.write("<p>Сума першого і останнього елементів: " + sum + "</p>");
+document.write("<p>Масив після заміни: " + arr.join(", ") + "</p>");
+
+</script>
+</body>
+</html>

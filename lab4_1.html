@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Lab4_1</title>
+</head>
+<body>
+
+<script>
+    // Масив трикутних чисел
+    let Treag = [];
+    for (let n = 1; n <= 10; n++) {
+        Treag.push(n * (n + 1) / 2);
+    }
+    document.write("Treag: " + Treag.join("  ") + "<br><br>");
+
+    // Масив квадратів чисел
+    let kvd = [];
+    for (let n = 1; n <= 10; n++) {
+        kvd.push(n * n);
+    }
+    document.write("kvd: " + kvd.join("  ") + "<br><br>");
+
+    // Об'єднання масивів
+    let rez = Treag.concat(kvd);
+    document.write("rez: " + rez.join("  ") + "<br><br>");
+
+    // Сортування у зворотному порядку
+    rez.sort(function(a, b) {
+        return b - a;
+    });
+    document.write("rez sorted desc: " + rez.join("  "));
+</script>
+
+</body>
+</html>

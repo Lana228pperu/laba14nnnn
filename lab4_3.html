@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<title>ПП-26 Сахацька</title>
+</head>
+<body>
+<script>
+"use strict";
+
+// Створюємо масив з 15 випадкових чисел у діапазоні [-20; 50]
+let arr = [];
+for (let i = 0; i < 15; i++) {
+    arr[i] = Math.floor(Math.random() * 71) - 20;
+}
+
+// Виводимо масив
+document.write("<p><b>Початковий масив:</b> " + arr.join(", ") + "</p>");
+
+// Ввід значення B
+let B = parseFloat(prompt("Введіть значення B:"));
+
+// --- 1. Середнє арифметичне додатних чисел на непарних місцях ---
+// Непарні місця: 1,3,5... → індекси 0,2,4...
+let positiveOddPlaces = arr.filter((num, index) => (index % 2 === 0) && num > 0);
+
+let average = positiveOddPlaces.length > 0 
+                ? positiveOddPlaces.reduce((a, b) => a + b, 0) / positiveOddPlaces.length
+                : 0;
+
+// --- 2. Кількість чисел менших за B ---
+let countLessThanB = arr.filter(num => num < B).length;
+
+// Виведення результатів
+document.write("<p><b>Середнє арифметичне додатних чисел на непарних місцях:</b> " 
+               + average.toFixed(2) + "</p>");
+
+document.write("<p><b>Кількість чисел, менших за B = " + B + ":</b> " 
+               + countLessThanB + "</p>");
+</script>
+</body>
+</html>
